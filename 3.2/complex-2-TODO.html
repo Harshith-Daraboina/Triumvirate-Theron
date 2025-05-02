@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex-TODO-LIST</title>
+</head>
+<input id = 'TODO-input' type="text"></input>
+<button onclick="addTODO()">ADD  TODO!</button>        
+<div class="todos"></div>
+       <script>
+        let todos = [];
+        function addTODO() {
+          todos.push({
+            title: document.querySelector("input").value
+          })
+          render();
+        }
+        function render() {
+          document.querySelector('#todos').innerHTML = '';
+          for(let i= 0 ; i< todos.length ;i++){
+            const todo = todos[i];
+            const div = document.createElement('div')
+            const h1 = document.createElement('h1')
+            const button = document.createElement('button')
+            button.innerHTML = 'delete'
+            h1.innerHTML = todos.title
+            div.appendChild(h1)
+            div.appendChild(button)
+            
+          }
+
+        }
+
+        function deleteTodo() {
+            todos.delete
+        }
+       </script>                               
+</body>
+
+
+</html>

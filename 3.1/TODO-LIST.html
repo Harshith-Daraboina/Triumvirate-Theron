@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-LIST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .todo-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            margin: 10px auto;
+            padding: 10px;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .todo-item button {
+            background-color: #ff4d4d;
+        }
+
+        .todo-item button:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
+<body>
+    <h1>TODO-LIST</h1>
+    
+    <div class="input-container">
+        <input type="text" id="todo-input">
+        <button onclick="addtodo()">Add TODO</button>
+    </div>
+
+    <div id="todo-container"></div> <!-- container for todo items -->
+
+    <script>
+        let ctr = 1; // Keep counter outside
+
+        function addtodo() {
+            const value = document.getElementById("todo-input").value.trim();
+
+            if (value === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            const newDivEle = document.createElement("div");
+            newDivEle.className = "todo-item"; // Add styling class
+            newDivEle.setAttribute("id", ctr);
+            newDivEle.innerHTML = `
+                <span>${value}</span>
+                <button onclick="deletetodo(${ctr})">Delete</button>
+            `;
+            document.getElementById("todo-container").appendChild(newDivEle);
+            ctr += 1;
+
+            document.getElementById("todo-input").value = ""; // Clear input after adding
+        }
+
+        function deletetodo(index) {
+            const ele = document.getElementById(index);
+            ele.parentNode.removeChild(ele);
+        }
+    </script>
+</body>
+</html>
