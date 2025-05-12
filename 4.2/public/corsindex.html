@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <label>Value of a: <input type="text" id="a" /></label><br>
+  <label>Value of b: <input type="text" id="b" /></label><br>
+  <button onclick="sendreq()">Find Sum</button>
+
+  <script>
+    function sendreq() {
+      const a = document.getElementById('a').value;
+      const b = document.getElementById('b').value;
+
+      axios.post("https://localhost:3000/sum", {
+        a: a,
+        b: b
+      })
+      .then(response => {
+        alert("Sum is: " + response.data.sum);
+      })
+      .catch(error => {
+        console.error("Request failed:", error);
+        alert("Error: Could not connect to server.");
+      });
+    }
+  </script>
+</body>
+</html>

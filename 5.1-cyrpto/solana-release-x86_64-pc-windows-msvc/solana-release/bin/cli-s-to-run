@@ -1,0 +1,20 @@
+>>solana-keygen new
+
+create a new keypair
+
+>>solana address
+
+display the public key of the keypair
+
+>>solana config get
+
+display the current configuration
+
+ >>solana config set --url https://api.devnet.solana.com
+
+connnect to the devnet
+
+>>solana config set --url https://api.mainnet-beta.solana.com
+
+connnect to the mainnet
+
