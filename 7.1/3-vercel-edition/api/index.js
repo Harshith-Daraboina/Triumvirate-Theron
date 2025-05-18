@@ -8,7 +8,10 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://triumvirate-theron-zuoa.vercel.app',
+  credentials: true
+}));
 const JWT_SECRET = "Ilovekara"; 
 const saltRounds = 5;
 
