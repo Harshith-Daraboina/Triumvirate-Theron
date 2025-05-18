@@ -6,7 +6,9 @@ const { UserModel, TodoModel } = require('../db');
 const { z } = require('zod');
 const path = require('path');
 const app = express();
+const cors = require('cors');
 
+app.use(cors());
 const JWT_SECRET = "Ilovekara"; 
 const saltRounds = 5;
 
