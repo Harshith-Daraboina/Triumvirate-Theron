@@ -6,6 +6,11 @@ const { UserModel, TodoModel } = require('./db');
 const { z } = require('zod');
 const path = require('path');
 const app = express();
+const fs = require('fs');
+
+
+app.listen(3000);
+
 
 const JWT_SECRET = "Ilovekara"; 
 const saltRounds = 5;
@@ -13,11 +18,14 @@ const saltRounds = 5;
 mongoose.connect('mongodb+srv://23bcs037:2PNRnxkGdUPdjv4r@cluster0.q5kwrtg.mongodb.net/todo-app-hitx');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+
 
 function auth(req, res, next) {
     const token = req.headers.token;

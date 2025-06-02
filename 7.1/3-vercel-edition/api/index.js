@@ -7,7 +7,6 @@ const { z } = require('zod');
 const path = require('path');
 const app = express();
 const cors = require('cors');
-
 app.use(cors({
   origin: 'https://triumvirate-theron-zuoa.vercel.app',
   credentials: true
@@ -17,6 +16,7 @@ const saltRounds = 5;
 
 mongoose.connect('mongodb+srv://23bcs037:2PNRnxkGdUPdjv4r@cluster0.q5kwrtg.mongodb.net/todo-app-hitx');
 
+app.use(cors());
 app.use(express.json());
 // app.use(express.static(path.join(__dirname, 'public')));
 
