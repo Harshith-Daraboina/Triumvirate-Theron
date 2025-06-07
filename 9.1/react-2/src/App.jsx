@@ -16,7 +16,16 @@ function App() {
         setCount(Count => Count + 1); 
       }, 1000);
       console.log("mounted")
-    }, []);
+    }, []);// when the array is empty, the effect runs only once after the initial render.
+
+
+    useEffect(() => {
+      console.log("unmounted")
+    } , [count]); // This effect runs every time the count changes.
+
+
+    
+
 
     return (
       <div className="">
