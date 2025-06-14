@@ -1,35 +1,16 @@
-import React, { useRef, useState } from 'react';
-
-function TextInputWithFocusButton() {
-  const inputEl = useRef(null);
-  const [inputValue, setInputValue] = useState('');
-  
-  const onButtonClick = () => {
-    // `current` points to the mounted text input element
-    inputEl.current.focus();
-  };
-  
-  return (
-    <>
-      <h1>Focus the input: {inputValue}</h1>
-      <input 
-        ref={inputEl} 
-        type="text" 
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button onClick={onButtonClick}>Focus the input</button>
-    </>
-  );
-}
+import { useState } from 'react';
+import { usePrev } from './components/usePrev';
 
 function App() {
+  const [value  ,setvalue] = useState(0);
+  const prevValue = usePrev(value);
   return (
     <>
-      <TextInputWithFocusButton />
-      {/* You can add other content here */}
+      <h1>{value}</h1>
+      <button onClick={() => setvalue(value+1)}>Click me</button>
+      <p>prevValue: {prevValue}</p>
     </>
-    
+
   );
 }
 
