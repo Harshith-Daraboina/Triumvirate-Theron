@@ -1,3 +1,7 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "100x"
+    "liveServer.settings.multiRootWorkspaceName": "100x",
+    "cSpell.words": [
+        "btschema",
+        "Sidebarcontent"
+    ]
 }

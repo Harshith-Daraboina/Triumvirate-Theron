@@ -1,0 +1,12 @@
+ Invoice Manager / Freelancer Tracker
+Frontend: Dashboard, form builder for invoices
+
+Backend: Create invoices, track payment status
+
+Good to Practice:
+
+Filtering by status/date
+
+PDF generation (Node.js lib)
+
+Prisma relations for client → invoices
